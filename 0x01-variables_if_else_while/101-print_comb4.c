@@ -11,21 +11,22 @@ int main(void)
 {
 	int digit1, digit2, digit3;
 
-	for (digit1 = 0; digit1 < 8; digit1++)
+	for (digit1 = 48; digit1 <56; digit1++)
 	{
-		for (digit2 = digit1 + 1; digit2 < 9; digit2++)
+		for (digit2 = digit1 + 1; digit2 < 57; digit2++)
 		{
-			for (digit3 = digit2 + 1; digit3 < 10; digit3++)
+			for (digit3 = digit2 + 1; digit3 < 58; digit3++)
 			{
-				putchar((digit1 % 10) + '0');
-				putchar((digit2 % 10) + '0');
-				putchar((digit2 % 10) + '0');
+				putchar((digit1);
+				putchar(digit2);
+				putchar(digit2);
 
-				if (digit1 == 7 && digit2 == 8 && digit3 == 9)
-					continue;
+				if (digit1 != 55 && digit2  != 56 && digit3 != 57)
+				{
 
 				putchar(',');
 				putchar(' ');
+				}
 			}
 		}
 	}
