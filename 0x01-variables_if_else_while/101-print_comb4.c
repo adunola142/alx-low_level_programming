@@ -17,11 +17,11 @@ int main(void)
 		{
 			for (digit3 = digit2 + 1; digit3 < 58; digit3++)
 			{
-				putchar((digit1);
+				putchar(digit1);
 				putchar(digit2);
 				putchar(digit2);
 
-				if (digit1 != 55 && digit2  != 56 && digit3 != 57)
+				if (digit1 != 55 || digit2  != 56 || digit3 != 57)
 				{
 
 				putchar(',');
