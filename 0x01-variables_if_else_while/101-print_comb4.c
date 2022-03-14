@@ -7,31 +7,35 @@
  * Return: Always 0.
  */
 
+
 int main(void)
 {
-	int digit1, digit2, digit3;
+	int c;
+	int d = 0;
 
-	for (digit1 = 0; digit1 < 9; digit1++)
+	while (d < 10)
 	{
-		for (digit2 = digit1 + 1; digit2 < 9; digit2++)
+		c = 0;
+		while (c < 10)
 		{
-			for (digit3 = digit2 + 1; digit3 < 9; digit3++)
+			if (d != c && d < c)
 			{
-				putchar(digit1);
-				putchar(digit2);
-				putchar(digit2);
+				putchar('0' + d);
+				putchar('0' + c);
 
-				if (digit1 < 8)
+				if (c + d != 17)
 				{
-
-				putchar(',');
-				putchar(' ');
+					putchar(',');
+					putchar(' ');
 				}
 			}
+
+			c++;
 		}
+		d++;
 	}
 	putchar('\n');
-
 	return (0);
+}
 }
 }
