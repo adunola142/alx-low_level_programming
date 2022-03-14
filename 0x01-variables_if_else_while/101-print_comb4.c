@@ -21,7 +21,7 @@ int main(void)
 				putchar(digit2);
 				putchar(digit2);
 
-				if (digit1 != 55 || digit2  != 56 || digit3 != 57)
+				if (digit1 < 8)
 				{
 
 				putchar(',');
