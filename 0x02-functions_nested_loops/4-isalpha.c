@@ -1,4 +1,4 @@
-#inclucde "main.h"
+#include "main.h"
 
 /**
  * _isalpha - tests whether a character is from the English alphabet.
