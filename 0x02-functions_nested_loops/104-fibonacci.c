@@ -23,7 +23,7 @@ int main(void)
 			bk1 = bk2, bk2 = hold2;
 			printf("%lu%010lu", fr2, bk2);
 		}
-		else 
+		else
 		{
 			hold2 = bk1 + bk2;
 			bk1 = bk2, bk2 = hold2;
