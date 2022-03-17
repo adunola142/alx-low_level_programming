@@ -33,4 +33,5 @@ void print_number(int n)
 		expo /= 10;
 	}
 	_putchar(res % 10 + '0');
+	return (0);
 }
