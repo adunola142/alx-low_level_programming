@@ -3,7 +3,7 @@
 /**
  * print_array - update value.
  * @a: value to be evaluate.
- * @a: value to be evaluate.
+ * @n: value to be evaluate.
  *
  * Return: nothing.
  */
