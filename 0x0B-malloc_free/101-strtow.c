@@ -1,87 +1,42 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-
 /**
- * number - function to calculate number of words
- * @str: string being passed to check for words
- *
- * Return: number of words
+ * *argstostr - concatenates all arguements to the program
+ * @ac: arguement count
+ * @av: pointer to arguements
+ * Return: pointer to new space in memory or null
  */
-int number(char *str)
+char *argstostr(int ac, char **av)
 {
-	int a, num = 0;
+	char *strDup;
+	int i, j, k, size;
 
-	for (a = 0; str[a] != '\0'; a++)
+	if (ac == 0 || av == NULL)
+		return (NULL);
+	size = 0;
+	/* count the number of chars in each string */
+	for (i = 0; i < ac; i++)
 	{
-		if (*str == ' ')
-			str++;
-		else
-		{
-			for (; str[a] != ' ' && str[a] != '\0'; a++)
-				str++;
-			num++;
-		}
+		for (j = 0; av[i][j] != '\0'; j++)
+			size++;
+		size++;
 	}
-	return (num);
-}
-/**
- * free_everything - frees the memory
- * @string: pointer values being passed for freeing
- * @i: counter
- */
-void free_everything(char **string, int i)
-{
-	for (; i > 0;)
-		free(string[--i]);
-	free(string);
-}
-
-/**
- * strtow - function that splits string into words
- * @str: string being passed
- * Return: null if string is empty or null or function fails
- */
-char **strtow(char *str)
-{
-	int total_words = 0, b = 0, c = 0, length = 0;
-	char **words, *found_word;
-
-	if (str == 0 || *str == 0)
+	size++;
+	/* allocate memory for total number of chars and
+	 * new line for each word
+	 */
+	strDup = malloc(sizeof(char) * size);
+	if (strDup == NULL)
 		return (NULL);
-	total_words = number(str);
-	if (total_words == 0)
-		return (NULL);
-	words = malloc((total_words + 1) * sizeof(char *));
-	if (words == 0)
-		return (NULL);
-	for (; *str != '\0' &&  b < total_words;)
+	k = 0;
+	for (i = 0; i < ac; i++)
 	{
-		if (*str == ' ')
-			str++;
-		else
+		for (j = 0; av[i][j] != '\0'; j++)
 		{
-			found_word = str;
-			for (; *str != ' ' && *str != '\0';)
-			{
-				length++;
-				str++;
-			}
-			words[b] = malloc((length + 1) * sizeof(char));
-			if (words[b] == 0)
-			{
-				free_everything(words, b);
-				return (NULL);
-			}
-			while (*found_word != ' ' && *found_word != '\0')
-			{
-				words[b][c] = *found_word;
-				found_word++;
-				c++;
-			}
-			words[b][c] = '\0';
-			b++; c = 0; length = 0; str++;
+			strDup[k++] = av[i][j];
 		}
+		strDup[k++] = '\n';
 	}
-	return (words);
+	strDup[k] = '\0';
+	return (strDup);
 }
