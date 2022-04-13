@@ -1,50 +1,38 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "3-calc.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
- * main - get_op_func has operators correlated with
- * func signs and funcs from op_func
- * if not 4 arguments, return Error & exit 98
- * if op is null, return Error & exit 99
- * if div or mod 0, return Error & exit 100
- * run calc, input one, operator, input two = pointer res to get_op
- * @argc: arguments
- * @argv: double pointer to arguments
- * Return: 0
+ * main - function
+ * @argc: number of arguments
+ * @argv: argument variables passed
+ * Return: Always 0 for sucess
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int one, two, ans;
+	int num1, num2, result;
 	int (*res)(int, int);
-	char *get_op;
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-
-	one = atoi(argv[1]);
-	two = atoi(argv[3]);
-	get_op = argv[2];
-
-	/* added edge case if argv[2] was longer than 1 char*/
-	if (get_op_func(argv[2]) == NULL || argv[2][1] != '\0')
+	if (argv[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
 	}
-
-	if ((*get_op == '/' || *get_op == '%') && (*argv[3] == '0'))
+	res = get_op_func(argv[2]);
+	if (res == 0)
 	{
 		printf("Error\n");
-		exit(100);
+		exit(99);
 	}
-
-	res = get_op_func(get_op);
-	ans = res(one, two);
-
-	printf("%d\n", ans);
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
+	result = res(num1, num2);
+	printf("%d\n", result);
 	return (0);
 }
 
