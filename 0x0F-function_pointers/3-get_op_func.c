@@ -1,10 +1,10 @@
-#include "function_pointers.h"
 #include "3-calc.h"
+#include <stdlib.h>
 
 /**
- * get_op_func - a pointer to the function that corresponds to the op as a parm
- * @s: operator passed as argument
- * Return: Always 0 for sucess
+ * get_op_func - Find the proper operator to call the proper function
+ * @s: Operator to determine proper function to call
+ * Return: Pointer to function matching operator
  */
 int (*get_op_func(char *s))(int, int)
 {
@@ -18,13 +18,13 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i;
 
+	i = 0;
 	while (i < 5)
 	{
-		if (*(ops[i].op) == *s && s[0] != '\0')
+		if (*ops[i].op == *s)
 			return (ops[i].f);
 		i++;
 	}
-	i = 0;
-	return (0);
+	return (NULL);
 }
 
