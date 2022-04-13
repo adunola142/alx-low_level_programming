@@ -1,6 +1,6 @@
 #include "function_pointers.h"
 #include "3-calc.h"
-
+#include <stddef.h>
 /**
  * get_op_func - a pointer to the function that corresponds to the op as a parm
  * @s: operator passed as argument
